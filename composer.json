@@ -1,0 +1,20 @@
+{
+    "name": "jflight/google-analytics-cookie-parser",
+    "description": "Parses google analytics cookies to extract info e.g. keyword data",
+    "authors": [
+        {
+            "name": "James Flight",
+            "email": "james@alchemyws.co.uk"
+        }
+    ],
+    "require-dev":
+    {
+        "mockery/mockery": "dev-master"
+    },
+    "autoload":
+    {
+        "psr-0": {
+            "Jflight\\Googleparse":"src"
+        }
+    }
+}

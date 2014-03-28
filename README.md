@@ -25,7 +25,7 @@ $utma = GACookie::parse('utma');
 $utmz = GACookie::parse('utmz');
 ```
 You can now access cookie variables:
-###For utma
+__For utma__
 
 ```php
 <?php
@@ -34,7 +34,7 @@ You can now access cookie variables:
 	$utma->time_of_current_visit; // @return DateTime
 	$utma->session_count // @return Integer
 ```
-###For utmz
+__For utmz__
 ```php
 <?php
 	$utmz->timestamp; // @return DateTime

@@ -1,7 +1,6 @@
 <?php namespace Jflight\GACookie;
 
 use Illuminate\Container\Container;
-use Jflight\GACookie\Parser;
 
 class GACookie
 {
@@ -13,7 +12,7 @@ class GACookie
 	public static function parse($cookieName)
 	{
 		$c = new Container;
-		$parser = $c->make('Parser');
+		$parser = $c->make('Jflight\GACookie\Parser');
 		return $parser->parse($cookieName);
 	}
 }

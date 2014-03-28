@@ -15,7 +15,7 @@
     "require":
     {
         "illuminate/support": "4.1.*",
-        "illuminate/container":"4.1.x"
+        "illuminate/container":"4.1.*"
     },
     "autoload":
     {

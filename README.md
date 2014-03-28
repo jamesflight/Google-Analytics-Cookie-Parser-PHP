@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jamesflight/Google-Analytics-Cookie-Parser-PHP.svg?branch=master)](https://travis-ci.org/jamesflight/Google-Analytics-Cookie-Parser-PHP)
+
 Google-Analytics-Cookie-Parser-PHP
 ==================================
 

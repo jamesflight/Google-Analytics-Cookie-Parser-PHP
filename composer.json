@@ -14,7 +14,7 @@
     "autoload":
     {
         "psr-0": {
-            "Jflight\\Googleparse":"src"
+            "Jflight\\GACookie":"src"
         }
     }
 }

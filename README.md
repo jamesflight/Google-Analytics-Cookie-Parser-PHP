@@ -1,4 +1,4 @@
-Google-Analytics-Cookie-Parser-PHP
+Google-Analytics-Cookie-Parser-PHP 
 ==================================
 
 This tool converts google's utmz and utma cookies into easy to use objects.

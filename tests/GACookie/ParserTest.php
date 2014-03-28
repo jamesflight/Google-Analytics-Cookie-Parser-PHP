@@ -36,6 +36,14 @@ class ParserTest extends PHPUnit_Framework_TestCase {
 		$result = $parser->parse('utmz');
 		$this->assertEquals('cookie_object', $result);
 	}
+
+	public function testReturnsFalseIfCookieDoesntExist()
+	{
+		$parser = $this->getParser();
+		$parser->shouldReceive('getCookie')->once()->andReturn(false);
+		$result = $parser->parse('utmz');
+		$this->assertSame(false,$result);
+	}
 	
 
 	protected function getParser()

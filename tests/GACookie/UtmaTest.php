@@ -16,11 +16,11 @@ class UtmaTest extends PHPUnit_Framework_TestCase {
 		$this->date->shouldReceive('createFromFormat')->with('U', 'initialTime')->andReturn('FirstDateObject');
 		$this->date->shouldReceive('createFromFormat')->with('U', 'lastTime')->andReturn('LastDateObject');
 		$this->date->shouldReceive('createFromFormat')->with('U', 'currentTime')->andReturn('CurrentDateObject');
-		$result = $utma->parse('dmhash.randid.initialTime.lastTime.currentTime.sessionCount');
+		$result = $utma->parse('dmhash.randid.initialTime.lastTime.currentTime.5');
 		$this->assertEquals('FirstDateObject', $result->time_of_first_visit);
 		$this->assertEquals('LastDateObject', $result->time_of_last_visit);
 		$this->assertEquals('CurrentDateObject', $result->time_of_current_visit);
-		$this->assertEquals('sessionCount', $result->session_count);
+		$this->assertSame(5, $result->session_count);
 	}
 
 	protected function getUtma()

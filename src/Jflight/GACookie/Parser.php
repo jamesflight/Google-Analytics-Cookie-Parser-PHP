@@ -19,13 +19,22 @@ class Parser
 	/**
 	 * Checks valid cookie type and passes the cookie string down to correct cookie object
 	 * @param  string $cookieName
-	 * @return Jflight\GACookie\ParseInterface
+	 * @return Jflight\GACookie\ParseInterface|bool
 	 */
 	public function parse($cookieName)
 	{
 		if (property_exists($this, $cookieName))
 		{
-			return $this->$cookieName->parse($this->getCookie('__' . $cookieName));
+			$cookie = $this->getCookie('__' . $cookieName);
+
+			if ($cookie)
+			{
+				return $this->$cookieName->parse($cookie);
+			} else
+			{
+				return false;
+			}
+			
 		} else
 		{
 			throw new \InvalidArgumentException("'" . $cookieName . "' is not a supported google cookie type.");
@@ -34,12 +43,18 @@ class Parser
 	}
 
 	/**
-	 * Wrapper for $_COOKIE for testing purposes
+	 * Wrapper for $_COOKIE for testing purposes. This funciton has to be untested.
 	 * @param  string $name
-	 * @return string
+	 * @return string|bool
 	 */
 	public function getCookie($name)
 	{
-		return $_COOKIE[$name];
+		if (isset($_COOKIE[$name]))
+		{
+			return $_COOKIE[$name];
+		} else
+		{
+			return false;
+		}
 	}
 }

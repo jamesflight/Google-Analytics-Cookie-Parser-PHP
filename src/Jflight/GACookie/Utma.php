@@ -48,7 +48,7 @@ class Utma extends Cookie
 		$this->time_of_first_visit = $this->date->createFromFormat('U', $cookieBits[2]);
 		$this->time_of_last_visit = $this->date->createFromFormat('U', $cookieBits[3]);
 		$this->time_of_current_visit = $this->date->createFromFormat('U', $cookieBits[4]);
-		$this->session_count = $cookieBits[5];
+		$this->session_count = (integer) $cookieBits[5];
 		return $this;
 	}
 }

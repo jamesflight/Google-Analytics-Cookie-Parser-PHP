@@ -14,10 +14,10 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	{
 		$utmz = $this->getUtmz();
 		$this->date->shouldReceive('createFromFormat')->with('U', 'timeStamp')->andReturn('DateObject');
-		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo');
+		$result = $utmz->parse('dmhash.timeStamp.5.6');
 		$this->assertEquals('DateObject', $result->timestamp);
-		$this->assertEquals('sessionCount', $result->session_count);
-		$this->assertEquals('campaignNo', $result->campaign_number);
+		$this->assertSame(5, $result->session_count);
+		$this->assertSame(6, $result->campaign_number);
 	}
 
 	public function testCanParseUtmzWithSource()

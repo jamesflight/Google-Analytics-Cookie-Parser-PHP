@@ -57,7 +57,7 @@ Because all time related properites return DateTime objects, this sort of thing 
 ```php
 <?php
 
-$utma->time_of_first_visit->format('Y'); // e.g. 2014
+echo $utma->time_of_first_visit->format('Y'); // e.g. 2014
 ```
 Also if you are so inclined, properties can be accessed via ArrayAccess:
 ```php

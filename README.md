@@ -30,30 +30,34 @@ __For utma__
 
 ```php
 <?php
-	$utma->time_of_first_visit; // @return DateTime
-	$utma->time_of_last_visit; // @return DateTime
-	$utma->time_of_current_visit; // @return DateTime
-	$utma->session_count // @return Integer
+
+$utma->time_of_first_visit; // @return DateTime
+$utma->time_of_last_visit; // @return DateTime
+$utma->time_of_current_visit; // @return DateTime
+$utma->session_count // @return Integer
 ```
 __For utmz__
 ```php
 <?php
-	$utmz->timestamp; // @return DateTime
-	$utmz->session_count // @return Integer
-	$utmz->campaign_number // @return Integer
-	$utmz->source // @return string
-	$utmz->medium // @return string
-	$utmz->campaign // @return string
-	$utmz->term // @return string
-	$utmz->content // @return string
+
+$utmz->timestamp; // @return DateTime
+$utmz->session_count // @return Integer
+$utmz->campaign_number // @return Integer
+$utmz->source // @return string
+$utmz->medium // @return string
+$utmz->campaign // @return string
+$utmz->term // @return string
+$utmz->content // @return string
 ```
 Because all time related properites return DateTime objects, this sort of thing is possible:
 ```php
 <?php
-	$utma->time_of_first_visit->format('Y'); // e.g. 2014
+
+$utma->time_of_first_visit->format('Y'); // e.g. 2014
 ```
 Also if you are so inclined, properties can be accessed via ArrayAccess:
 ```php
 <?php
-	echo $utma['source']; // e.g. google
+
+echo $utma['source']; // e.g. google
 ```

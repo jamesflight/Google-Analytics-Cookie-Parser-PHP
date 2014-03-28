@@ -13,6 +13,10 @@ Install via composer. Edit your project's composer.json file to require jflight/
     "require": {
     	"jflight/gacookie":"1.0"
     }
+
+Update Composer from the terminal:
+	
+	composer update
 #Usage
 Parse the cookies (currently supports [__utma__ and __utmz__](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)):
 

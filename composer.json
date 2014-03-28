@@ -14,7 +14,7 @@
     },
     "require":
     {
-        "illuminate/container":"4.0"
+        "illuminate/container":"4.*"
     },
     "autoload":
     {

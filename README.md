@@ -25,6 +25,7 @@ $utma = GACookie::parse('utma');
 $utmz = GACookie::parse('utmz');
 ```
 You can now access cookie variables:
+
 __For utma__
 
 ```php

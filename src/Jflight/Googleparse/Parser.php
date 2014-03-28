@@ -10,9 +10,10 @@ class Parser
 	 * Constructor
 	 * @param Utma $utma
 	 */
-	public function __construct(Utma $utma)
+	public function __construct(Utma $utma, Utmz $utmz)
 	{
 		$this->utma = $utma;
+		$this->utmz = $utmz;
 	}
 
 	/**
@@ -27,7 +28,7 @@ class Parser
 			return $this->$cookieName->parse($this->getCookie('__' . $cookieName));
 		} else
 		{
-			throw new \InvalidArgumentException("'" . $cookieName . "' is not a valid google cookie type.");
+			throw new \InvalidArgumentException("'" . $cookieName . "' is not a supported google cookie type.");
 		}
 		
 	}

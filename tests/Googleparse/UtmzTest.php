@@ -5,10 +5,15 @@ use Mockery as m;
 
 class UtmzTest extends PHPUnit_Framework_TestCase {
 
+	public function tearDown()
+	{
+		m::close();
+	}
+
 	public function testCanParseValidUtmzCookie()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp')->with('timeStamp')->andReturn('DateObject');
+		$this->date->shouldReceive('createFromFormat')->with('U', 'timeStamp')->andReturn('DateObject');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo');
 		$this->assertEquals('DateObject', $result->timestamp);
 		$this->assertEquals('sessionCount', $result->session_count);
@@ -18,7 +23,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanParseUtmzWithSource()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcsr=google');
 		$this->assertEquals('google',$result->source);
 	}
@@ -26,7 +31,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanParseUtmzWithMedium()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcmd=cpc');
 		$this->assertEquals('cpc',$result->medium);
 	}
@@ -34,7 +39,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanParseUtmzWithCampaign()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmccn=campaign');
 		$this->assertEquals('campaign',$result->campaign);
 	}
@@ -42,7 +47,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanParseUtmzWithTerm()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmctr=term');
 		$this->assertEquals('term',$result->term);
 	}
@@ -50,7 +55,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanParseUtmzWithContent()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcct=content');
 		$this->assertEquals('content',$result->content);
 	}
@@ -58,7 +63,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	public function testCanSetMultipleExtraValues()
 	{
 		$utmz = $this->getUtmz();
-		$this->date->shouldReceive('setTimeStamp');
+		$this->date->shouldReceive('createFromFormat');
 		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcct=content|utmctr=term|utmccn=campaign');
 		$this->assertEquals('content',$result->content);
 		$this->assertEquals('term',$result->term);
@@ -67,7 +72,7 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 
 	public function getUtmz()
 	{
-		$this->date = m::mock('DateTimeImmutable');
+		$this->date = m::mock('DateTime');
 		return new Utmz($this->date);
 	}
 }

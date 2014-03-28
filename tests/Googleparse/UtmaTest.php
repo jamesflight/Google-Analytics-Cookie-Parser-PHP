@@ -5,12 +5,17 @@ use Mockery as m;
 
 class UtmaTest extends PHPUnit_Framework_TestCase {
 
+	public function tearDown()
+	{
+		m::close();
+	}
+
 	public function testCanParseValidUtmaCookie()
 	{
 		$utma = $this->getUtma();
-		$this->date->shouldReceive('setTimeStamp')->with('initialTime')->andReturn('FirstDateObject');
-		$this->date->shouldReceive('setTimeStamp')->with('lastTime')->andReturn('LastDateObject');
-		$this->date->shouldReceive('setTimeStamp')->with('currentTime')->andReturn('CurrentDateObject');
+		$this->date->shouldReceive('createFromFormat')->with('U', 'initialTime')->andReturn('FirstDateObject');
+		$this->date->shouldReceive('createFromFormat')->with('U', 'lastTime')->andReturn('LastDateObject');
+		$this->date->shouldReceive('createFromFormat')->with('U', 'currentTime')->andReturn('CurrentDateObject');
 		$result = $utma->parse('dmhash.randid.initialTime.lastTime.currentTime.sessionCount');
 		$this->assertEquals('FirstDateObject', $result->time_of_first_visit);
 		$this->assertEquals('LastDateObject', $result->time_of_last_visit);
@@ -20,7 +25,7 @@ class UtmaTest extends PHPUnit_Framework_TestCase {
 
 	protected function getUtma()
 	{
-		$this->date = m::mock('DateTimeImmutable');
+		$this->date = m::mock('DateTime');
 		return new Utma($this->date);
 	}
 }

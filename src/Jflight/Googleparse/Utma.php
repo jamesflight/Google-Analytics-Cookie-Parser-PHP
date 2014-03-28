@@ -8,7 +8,7 @@ class Utma extends Cookie
 	 * Constructor
 	 * @param DateTimeImmutable $date
 	 */
-	public function __construct(\DateTimeImmutable $date)
+	public function __construct(\DateTime $date)
 	{
 		$this->date = $date;
 	}
@@ -45,9 +45,9 @@ class Utma extends Cookie
 	public function parse($cookie)
 	{
 		$cookieBits = explode('.', $cookie);
-		$this->time_of_first_visit = $this->date->setTimeStamp($cookieBits[2]);
-		$this->time_of_last_visit = $this->date->setTimeStamp($cookieBits[3]);
-		$this->time_of_current_visit = $this->date->setTimeStamp($cookieBits[4]);
+		$this->time_of_first_visit = $this->date->createFromFormat('U', $cookieBits[2]);
+		$this->time_of_last_visit = $this->date->createFromFormat('U', $cookieBits[3]);
+		$this->time_of_current_visit = $this->date->createFromFormat('U', $cookieBits[4]);
 		$this->session_count = $cookieBits[5];
 		return $this;
 	}

@@ -68,7 +68,7 @@ class Utmz extends Cookie
 	 * Constructor
 	 * @param DateTimeImmutable $date
 	 */
-	public function __construct(\DateTimeImmutable $date)
+	public function __construct(\DateTime $date)
 	{
 		$this->date = $date;
 	}
@@ -81,7 +81,7 @@ class Utmz extends Cookie
 	public function parse($cookie)
 	{
 		$cookieBits = explode('.', $cookie);
-		$this->timestamp = $this->date->setTimeStamp($cookieBits[1]);
+		$this->timestamp = $this->date->createFromFormat('U', $cookieBits[1]);
 		$this->session_count = $cookieBits[2];
 		$this->campaign_number = $cookieBits[3];
 		$array = $this->paramsToArray($cookieBits);

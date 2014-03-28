@@ -3,6 +3,11 @@ use Jflight\Googleparse\Cookie;
 use Mockery as m;
 
 class CookieTest extends PHPUnit_Framework_TestCase {
+
+	public function tearDown()
+	{
+		m::close();
+	}
 	
 	public function testCanAccessAsArray()
 	{

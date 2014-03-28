@@ -5,6 +5,11 @@ use Mockery as m;
 
 class ParserTest extends PHPUnit_Framework_TestCase {
 
+	public function tearDown()
+	{
+		m::close();
+	}
+
 	/**
 	 * @expectedException InvalidArgumentException
 	 */
@@ -22,12 +27,22 @@ class ParserTest extends PHPUnit_Framework_TestCase {
 		$result = $parser->parse('utma');
 		$this->assertEquals('cookie_object', $result);
 	}
+
+	public function testCanParseUtmzCookie()
+	{
+		$parser = $this->getParser();
+		$parser->shouldReceive('getCookie')->once()->with('__utmz')->andReturn('cookie_content');
+		$this->utmz->shouldReceive('parse')->with('cookie_content')->andReturn('cookie_object');
+		$result = $parser->parse('utmz');
+		$this->assertEquals('cookie_object', $result);
+	}
 	
 
 	protected function getParser()
 	{
 		$this->utma = m::mock('Jflight\Googleparse\Utma');
-		$parser = m::mock('Jflight\Googleparse\Parser[getCookie]', array($this->utma));
+		$this->utmz = m::mock('Jflight\Googleparse\Utmz');
+		$parser = m::mock('Jflight\Googleparse\Parser[getCookie]', array($this->utma, $this->utmz));
 		return $parser;
 	}
 

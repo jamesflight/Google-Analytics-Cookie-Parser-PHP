@@ -1,4 +1,4 @@
-<?php
+<?php namespace Jflight\GACookie;
 
 use Illuminate\Container\Container;
 use Jflight\GACookie\Parser;

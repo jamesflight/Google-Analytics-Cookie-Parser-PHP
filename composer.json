@@ -1,5 +1,5 @@
 {
-    "name": "jflight/google-analytics-cookie-parser",
+    "name": "Jflight/GACookie",
     "description": "Parses google analytics cookies to extract info e.g. keyword data",
     "authors": [
         {

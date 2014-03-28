@@ -13,7 +13,7 @@ class GACookie
 	{
 		$c = new Container;
 		$c->bind('DateTime', function(){
-			return new DateTime;
+			return new \DateTime;
 		});
 		$parser = $c->make('Jflight\GACookie\Parser');
 		return $parser->parse($cookieName);

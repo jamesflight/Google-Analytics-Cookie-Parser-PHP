@@ -35,23 +35,23 @@ __For utma__
 ```php
 <?php
 
-$utma->time_of_first_visit; // @return DateTime
-$utma->time_of_last_visit; // @return DateTime
-$utma->time_of_current_visit; // @return DateTime
-$utma->session_count // @return Integer
+$utma->time_of_first_visit; // DateTime
+$utma->time_of_last_visit; // DateTime
+$utma->time_of_current_visit; // DateTime
+$utma->session_count // Integer
 ```
 __For utmz__
 ```php
 <?php
 
-$utmz->timestamp; // @return DateTime
-$utmz->session_count // @return Integer
-$utmz->campaign_number // @return Integer
-$utmz->source // @return string
-$utmz->medium // @return string
-$utmz->campaign // @return string
-$utmz->term // @return string
-$utmz->content // @return string
+$utmz->timestamp; // DateTime
+$utmz->session_count // Integer
+$utmz->campaign_number // Integer
+$utmz->source // string
+$utmz->medium // string
+$utmz->campaign // string
+$utmz->term // string
+$utmz->content // string
 ```
 Because all time related properites return DateTime objects, this sort of thing is possible:
 ```php

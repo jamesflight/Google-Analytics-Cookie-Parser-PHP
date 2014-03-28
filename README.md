@@ -11,7 +11,7 @@ Install via composer. Edit your project's composer.json file to require jflight/
         "type": "git"
     }],
     "require": {
-    	"jflight/gacookie":"1.0"
+    	"jflight/gacookie":"0.*"
     }
 
 Update Composer from the terminal:

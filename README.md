@@ -65,5 +65,5 @@ Also if you are so inclined, properties can be accessed via ArrayAccess:
 ```php
 <?php
 
-echo $utma['source']; // e.g. google
+echo $utmz['source']; // e.g. google
 ```

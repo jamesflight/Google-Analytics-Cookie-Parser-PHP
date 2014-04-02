@@ -5,6 +5,8 @@ Google-Analytics-Cookie-Parser-PHP
 
 This tool converts google's utmz and utma cookies into easy to use objects.
 
+This gives easy access to googel session and keyword data.
+
 #Installation
 Install via composer. Edit your project's composer.json file to require jflight/gacookie:
 

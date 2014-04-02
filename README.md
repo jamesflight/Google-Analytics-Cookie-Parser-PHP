@@ -8,10 +8,6 @@ This tool converts google's utmz and utma cookies into easy to use objects.
 #Installation
 Install via composer. Edit your project's composer.json file to require jflight/gacookie:
 
-	"repositories":[{
-    	"url": "https://github.com/jamesflight/Google-Analytics-Cookie-Parser-PHP",
-        "type": "git"
-    }],
     "require": {
     	"jflight/gacookie":"1.*"
     }

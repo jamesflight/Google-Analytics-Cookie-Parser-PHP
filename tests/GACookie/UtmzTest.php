@@ -70,6 +70,14 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('campaign',$result->campaign);
 	}
 
+	public function testCanParseUtmzWithContentWithDots()
+	{
+		$utmz = $this->getUtmz();
+		$this->date->shouldReceive('createFromFormat');
+		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcct=content.with.dots');
+		$this->assertEquals('content.with.dots',$result->content);
+	}
+
 	public function getUtmz()
 	{
 		$this->date = m::mock('DateTime');

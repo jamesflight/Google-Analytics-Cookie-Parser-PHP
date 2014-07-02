@@ -80,7 +80,7 @@ class Utmz extends Cookie
 	 */
 	public function parse($cookie)
 	{
-		$cookieBits = explode('.', $cookie);
+		$cookieBits = explode('.', $cookie, 5);
 		$this->timestamp = $this->date->createFromFormat('U', $cookieBits[1]);
 		$this->session_count = (integer) $cookieBits[2];
 		$this->campaign_number = (integer) $cookieBits[3];

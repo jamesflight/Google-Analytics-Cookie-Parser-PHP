@@ -11,7 +11,7 @@ This gives easy access to googel session and keyword data.
 Install via composer. Edit your project's composer.json file to require jflight/gacookie:
 
     "require": {
-    	"jflight/gacookie":"1.*"
+    	"jflight/gacookie":"dev-master"
     }
 
 Update Composer from the terminal:

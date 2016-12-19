@@ -34,12 +34,37 @@ class Parser
 			{
 				return false;
 			}
-			
+
 		} else
 		{
 			throw new \InvalidArgumentException("'" . $cookieName . "' is not a supported google cookie type.");
 		}
-		
+
+	}
+
+	/**
+	 * Checks valid cookie type and passes the cookie string down to correct cookie object
+	 * @param  string $cookieName
+	 * @param  string $string
+	 * @return Jflight\GACookie\ParseInterface|bool
+	 */
+	public function parseString($cookieName, $string)
+	{
+		if (property_exists($this, $cookieName))
+		{
+			if ($string)
+			{
+				return $this->$cookieName->parse($string);
+			} else
+			{
+				return false;
+			}
+
+		} else
+		{
+			throw new \InvalidArgumentException("'" . $cookieName . "' is not a supported google cookie type.");
+		}
+
 	}
 
 	/**

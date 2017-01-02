@@ -15,7 +15,7 @@ Install via composer. Edit your project's composer.json file to require jflight/
     }
 
 Update Composer from the terminal:
-	
+
 	composer update
 #Usage
 Parse the cookies (currently supports [__utma__ and __utmz__](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)):
@@ -28,6 +28,18 @@ use Jflight\GACookie\GACookie;
 $utma = GACookie::parse('utma');
 $utmz = GACookie::parse('utmz');
 ```
+
+Or directly parse strings:
+
+```php
+<?php
+
+$utma = GACookie::parseString('utma', '177910838.254655113.1474876189.1482142331.1482148790.58');
+$utmz = GACookie::parseString('utmz', '177910838.1481550491.52.15.utmcsr=newsletter|utmccn=campaign-2016|utmcmd=email');
+
+```
+
+
 You can now access cookie variables:
 
 __For utma__

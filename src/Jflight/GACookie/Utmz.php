@@ -23,6 +23,12 @@ class Utmz extends Cookie
 	public $campaign_number;
 
 	/**
+	 * gclid
+	 * @var string
+	 */
+	public $gclid;
+
+	/**
 	 * Source
 	 * @var string
 	 */
@@ -57,6 +63,7 @@ class Utmz extends Cookie
 	 * @var array
 	 */
 	protected $keyMappings = array(
+						'utmgclid' => 'gclid',
 						'utmcsr' => 'source',
 						'utmcmd' => 'medium',
 						'utmccn' => 'campaign',

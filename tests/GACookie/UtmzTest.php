@@ -64,10 +64,11 @@ class UtmzTest extends PHPUnit_Framework_TestCase {
 	{
 		$utmz = $this->getUtmz();
 		$this->date->shouldReceive('createFromFormat');
-		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmcct=content|utmctr=term|utmccn=campaign');
+		$result = $utmz->parse('dmhash.timeStamp.sessionCount.campaignNo.utmgclid=EAIaIQobChMIltPrt-ik2QIVC4G9Ch3AiQgCEAAYASAAEgImhfD_BwE|utmcct=content|utmctr=term|utmccn=campaign');
 		$this->assertEquals('content',$result->content);
 		$this->assertEquals('term',$result->term);
 		$this->assertEquals('campaign',$result->campaign);
+		$this->assertEquals('EAIaIQobChMIltPrt-ik2QIVC4G9Ch3AiQgCEAAYASAAEgImhfD_BwE',$result->gclid);
 	}
 
 	public function testCanParseUtmzWithContentWithDots()

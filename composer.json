@@ -22,5 +22,8 @@
         "psr-0": {
             "Jflight\\GACookie":"src"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }

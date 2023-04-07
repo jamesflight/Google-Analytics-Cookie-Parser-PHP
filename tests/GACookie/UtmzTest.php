@@ -3,9 +3,9 @@
 use Jflight\GACookie\Utmz;
 use Mockery as m;
 
-class UtmzTest extends PHPUnit_Framework_TestCase {
+class UtmzTest extends \PHPUnit\Framework\TestCase {
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		m::close();
 	}

@@ -15,7 +15,7 @@
     "require":
     {
         "php": ">=8.0",
-        "illuminate/container":"4.1.*"
+        "illuminate/container":"^9.52"
     },
     "autoload":
     {

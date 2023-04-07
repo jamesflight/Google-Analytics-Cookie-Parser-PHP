@@ -2,13 +2,13 @@
 use Jflight\GACookie\Cookie;
 use Mockery as m;
 
-class CookieTest extends PHPUnit_Framework_TestCase {
+class CookieTest extends \PHPUnit\Framework\TestCase {
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		m::close();
 	}
-	
+
 	public function testCanAccessAsArray()
 	{
 		$cookie = $this->getCookieStub();

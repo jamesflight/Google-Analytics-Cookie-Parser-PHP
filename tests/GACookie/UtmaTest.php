@@ -3,9 +3,9 @@
 use Jflight\GACookie\Utma;
 use Mockery as m;
 
-class UtmaTest extends PHPUnit_Framework_TestCase {
+class UtmaTest extends \PHPUnit\Framework\TestCase {
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		m::close();
 	}

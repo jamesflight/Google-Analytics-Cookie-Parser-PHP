@@ -4,18 +4,16 @@ use Jflight\GACookie\Parser;
 use Jflight\GACookie\GACookie;
 use Mockery as m;
 
-class ParserTest extends PHPUnit_Framework_TestCase {
+class ParserTest extends \PHPUnit\Framework\TestCase {
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		m::close();
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
 	public function testExceptionIfInvalidArgumentProvided()
 	{
+        $this->expectException(InvalidArgumentException::class);
 		$parser = $this->getParser();
 		$parser->parse('invalid');
 	}
